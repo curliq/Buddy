@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.curlicue.buddy.ui.list.TransactionItemViewModel" />
+
+        <variable
+            name="actionListener"
+            type="com.curlicue.buddy.ui.list.TransactionItemViewModel.ActionListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> actionListener.onTransactionPressed()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemTransaction_dateDivider_tv" />
+
+        <TextView
+            android:id="@+id/itemTransaction_dateDivider_tv"
+            style="@style/BuddyDividerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/side_margin"
+            android:paddingTop="24dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="8dp"
+            android:text="@{viewModel.dateDivider}"
+            android:visibility="@{viewModel.dateDividerVisibility}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/itemTransaction_imageContainer_cv"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="@dimen/side_margin"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemTransaction_dateDivider_tv">
+
+            <ImageView
+                android:id="@+id/itemTransaction_image_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:transitionName="aa"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/itemTransaction_title_tv"
+            style="@style/BuddyNormalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@{viewModel.name}"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toRightOf="@id/itemTransaction_imageContainer_cv"
+            app:layout_constraintTop_toBottomOf="@id/itemTransaction_dateDivider_tv" />
+
+        <TextView
+            android:id="@+id/itemTransaction_body_tv"
+            style="@style/BuddyNormalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:text="@{viewModel.label}"
+            android:textColor="#aaa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/itemTransaction_title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/itemTransaction_title_tv" />
+
+        <TextView
+            android:id="@+id/itemTransaction_amount_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:text="@{viewModel.amount}"
+            android:textColor="@{viewModel.amountColor}"
+            android:textSize="16sp"
+            app:layout_constraintRight_toLeftOf="@+id/itemTransaction_amountCurrency_tv"
+            app:layout_constraintTop_toTopOf="@+id/itemTransaction_title_tv" />
+
+        <TextView
+            android:id="@+id/itemTransaction_amountCurrency_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/side_margin"
+            android:text="@{viewModel.currency}"
+            android:textColor="@{viewModel.amountColor}"
+            android:textSize="10sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/itemTransaction_amount_tv"
+            app:layout_constraintBottom_toBottomOf="@+id/itemTransaction_amount_tv"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

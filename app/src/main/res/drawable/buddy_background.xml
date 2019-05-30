@@ -1,0 +1,4 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/buddy_background_shape"/>
+    <item android:drawable="@drawable/buddy_background_texture"/>
+</layer-list>

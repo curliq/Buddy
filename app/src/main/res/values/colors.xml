@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#111</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="dangerRed">#d4443a</color>
+    <color name="successGreen">#15b962</color>
+
+    <color name="background">#f8f8f8</color>
+    <color name="toolbarLine">#ddd</color>
+    <color name="transactionAmountOutbound">#222</color>
+    <color name="transactionAmountInbound">@color/successGreen</color>
+
+</resources>

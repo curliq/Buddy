@@ -1,0 +1,91 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.curlicue.buddy.ui.list.TransactionsListViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragmentTransactions_toolbar_cv"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="@{viewModel.toolbarElevation}"
+            android:transitionName="@string/transition_toolbarContainer">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/buddy_background"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/fragmentTransactions_title_tv"
+                style="@style/BuddyTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Your transactions"
+                android:transitionName="oof"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/toolbarLine" />
+
+            <ProgressBar
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center_vertical|end"
+                android:visibility="@{viewModel.backgroundLoadingVisibility}"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragmentTransactions_transactions_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragmentTransactions_toolbar_cv" />
+
+        <ProgressBar
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="50dp"
+            android:visibility="@{viewModel.mainLoadingVisibility}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragmentTransactions_toolbar_cv" />
+
+        <TextView
+            style="@style/BuddyNormalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.errorMessage}"
+            android:textColor="@color/dangerRed"
+            android:visibility="@{viewModel.errorMessageVisibility}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragmentTransactions_toolbar_cv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
