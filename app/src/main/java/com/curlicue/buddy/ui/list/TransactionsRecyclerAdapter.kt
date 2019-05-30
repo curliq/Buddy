@@ -7,10 +7,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.curlicue.buddy.R
-import com.curlicue.buddy.Utils
+import com.curlicue.buddy.Utils.loadImageUrl
 import com.curlicue.buddy.data.TransactionDAO
 import com.curlicue.buddy.databinding.ItemTransactionBinding
-import com.curlicue.buddy.Utils.loadImageUrl
 
 
 class TransactionsRecyclerAdapter(

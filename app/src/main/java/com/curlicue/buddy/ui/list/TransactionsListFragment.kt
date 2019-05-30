@@ -1,22 +1,21 @@
 package com.curlicue.buddy.ui.list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.curlicue.buddy.R
 import com.curlicue.buddy.data.TransactionDAO
 import com.curlicue.buddy.databinding.FragmentTransactionsBinding
 import com.curlicue.buddy.ui.MainActivity
 import com.curlicue.buddy.ui.detail.TransactionDetailFragment
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import com.curlicue.buddy.R
 
 
 class TransactionsListFragment : Fragment() {
@@ -47,11 +46,7 @@ class TransactionsListFragment : Fragment() {
         viewModel.transactionPressed.observe(this, Observer<TransactionDAO.Transaction> {
             it?.let {
                 viewModel.onTransactionPressed(null)
-                (activity as MainActivity).inflateFragment(
-                    TransactionDetailFragment.newInstance(it),
-                    true,
-                    true
-                )
+                (activity as MainActivity).inflateFragment(TransactionDetailFragment.newInstance(it), true, true)
             }
         })
 

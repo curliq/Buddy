@@ -72,8 +72,6 @@ class TransactionsListViewModel : ViewModel(), TransactionsContract.ViewModel {
                     var hasDifferentItems = false
                     mapped.forEach {
                         if (it != _transactions.value?.first { tx -> tx.id == it.id }) {
-                            Log.i("tagg", "has diff: ")
-                            Log.i("tagg", it.toString())
                             hasDifferentItems = true
                         }
                     }

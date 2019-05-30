@@ -56,11 +56,4 @@ class MainActivity : AppCompatActivity() {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase!!))
     }
 
-    inner class DetailsTransition : TransitionSet() {
-        init {
-            setOrdering(ORDERING_TOGETHER)
-            addTransition(ChangeBounds()).addTransition(ChangeTransform()).addTransition(ChangeImageTransform())
-        }
-
-    }
 }

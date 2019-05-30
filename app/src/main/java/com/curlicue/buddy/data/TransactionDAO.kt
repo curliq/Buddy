@@ -47,10 +47,6 @@ data class TransactionDAO(
                     this.description == other.description &&
                     this.id == other.id &&
                     this.service == other.service)
-            Log.i("tagg", "check equals")
-            Log.i("tagg", a.toString())
-            Log.i("tagg", this.toString())
-            Log.i("tagg", other.toString())
             return a
         }
     }
